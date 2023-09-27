@@ -11,3 +11,30 @@ CREATE TABLE animals (
 );
 
 ALTER TABLE animals ADD species varchar(255);
+
+CREATE TABLE owners (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    full_name varchar(255),
+    age INT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE species (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name varchar(255),
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE animals DROP COLUMN species;
+
+ALTER TABLE animals
+ADD species_id INT,
+ADD CONSTRAINT constraint_fk
+FOREIGN KEY (species_id)
+REFERENCES species(id);
+
+ALTER TABLE animals
+ADD owner_id INT,
+ADD CONSTRAINT owner_fk_constraint
+FOREIGN KEY (owner_id)
+REFERENCES owners (id);

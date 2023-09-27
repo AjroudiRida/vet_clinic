@@ -46,3 +46,13 @@ SELECT AVG(weight_kg) AS average_weight FROM animals;
 SELECT neutered, MAX(escape_attempts) FROM animals GROUP BY neutered;
 SELECT species, MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight FROM animals GROUP BY species;
 SELECT species, AVG(escape_attempts) AS avg_escape_attempts FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
+
+
+SELECT o.full_name, a.name FROM animals a INNER JOIN owners o ON a.owner_id = o.id WHERE o.full_name = 'Melody Pond';
+SELECT a.name, s.name FROM animals a INNER JOIN species s ON a.species_id = s.id WHERE s.id = 1;
+SELECT o.full_name, a.name FROM animals a RIGHT JOIN owners o ON a.owner_id = o.id;
+SELECT COUNT(a.name) AS nb_animal, s.name FROM animals a INNER JOIN species s ON a.species_id = s.id GROUP BY s.name;
+SELECT o.full_name AS Owner_name, a.name AS Digimon FROM animals a INNER JOIN owners o ON a.owner_id = o.id INNER JOIN species s ON a.species_id = s.id WHERE o.full_name = 'Jennifer Orwell' AND s.name = 'Digimon';
+SELECT o.full_name AS owner_name, a.name AS animal_name FROM animals a INNER JOIN owners o ON a.owner_id = o.id WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts = 0;
+SELECT o.full_name AS owner_name, COUNT(a.name) AS nb_animal FROM animals a INNER JOIN owners o ON a.owner_id = o.id GROUP BY o.full_name ORDER BY nb_animal DESC LIMIT 1;
+
