@@ -38,3 +38,34 @@ ADD owner_id INT,
 ADD CONSTRAINT owner_fk_constraint
 FOREIGN KEY (owner_id)
 REFERENCES owners (id);
+
+CREATE TABLE vets (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name varchar(255),
+    age INT,
+    date_of_graduation date,
+    PRIMARY KEY (id) 
+);
+
+CREATE TABLE specializations (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    specie_id INT,
+    vet_id INT,
+    FOREIGN KEY (specie_id)
+    REFERENCES species (id),
+    FOREIGN KEY (vet_id)
+    REFERENCES vets (id),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE visits (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    animal_id INT,
+    vet_id INT,
+    date_of_visit date,
+    FOREIGN KEY (animal_id)
+    REFERENCES animals (id),
+    FOREIGN KEY (vet_id)
+    REFERENCES vets (id),
+    PRIMARY KEY (id)
+);
