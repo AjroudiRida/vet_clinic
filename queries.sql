@@ -111,13 +111,13 @@ JOIN vets vt ON v.vet_id = vt.id
 LEFT JOIN specializations sp ON v.vet_id = sp.vet_id AND s.id = sp.specie_id
 WHERE sp.vet_id IS NULL GROUP BY vt.name;
 
-SELECT vt.name AS vet_name, s.name AS species_specialisation
+SELECT vt.name AS vet_name, a.name AS species_specialisation
 FROM visits v
 JOIN vets vt ON v.vet_id = vt.id
 JOIN animals a ON v.animal_id = a.id
 JOIN species s ON a.species_id = s.id
 WHERE vt.name = 'Maisy Smith'
-GROUP BY vt.name, s.name
+GROUP BY vt.name, a.name
 ORDER BY COUNT(v.animal_id)
 DESC LIMIT 1;
 
