@@ -37,3 +37,37 @@ UPDATE animals SET owner_id = 3 WHERE name IN ('Devimon', 'Plantmon');
 UPDATE animals SET owner_id = 4 WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals SET owner_id = 5 WHERE name IN ('Angemon', 'Boarmon');
 
+INSERT INTO vets (name, age, date_of_graduation) VALUES
+('William Tatcher', 45, TO_DATE('Apr 23, 2000', 'Mon DD, YYYY')),
+('Maisy Smith', 26, TO_DATE('Jan 17, 2019', 'Mon DD, YYYY')),
+('Stephanie Mendez', 64, TO_DATE('May 4, 1981', 'Mon DD, YYYY')),
+('Jack Harkness', 38, TO_DATE('Jun 8, 2008', 'Mon DD, YYYY'));
+
+INSERT INTO specializations (specie_id, vet_id) VALUES
+(1,1),
+(2,3),
+(1,3),
+(2,4);
+
+INSERT INTO visits (animal_id, vet_id, date_of_visit) VALUES
+(1, 1, TO_DATE('May 24, 2020', 'Mon DD, YYYY')),
+(1, 3, TO_DATE('Jul 22, 2020', 'Mon DD, YYYY')),
+(2, 4, TO_DATE('Feb 2, 2021', 'Mon DD, YYYY')),
+(3, 2, TO_DATE('Jan 5, 2020', 'Mon DD, YYYY')),
+(3, 2, TO_DATE('Mar 8, 2020', 'Mon DD, YYYY')),
+(3, 2, TO_DATE('May 14, 2020', 'Mon DD, YYYY')),
+(4, 3, TO_DATE('May 4, 2021', 'Mon DD, YYYY')),
+(5, 4, TO_DATE('Feb 24, 2021', 'Mon DD, YYYY')),
+(6, 2, TO_DATE('Dec 21, 2019', 'Mon DD, YYYY')),
+(6, 1, TO_DATE('Aug 10, 2020', 'Mon DD, YYYY')),
+(6, 2, TO_DATE('Apr 7, 2021', 'Mon DD, YYYY')),
+(7, 3, TO_DATE('Sep 29, 2019', 'Mon DD, YYYY')),
+(8, 4, TO_DATE('Oct 3, 2020', 'Mon DD, YYYY')),
+(8, 4, TO_DATE('Nov 4, 2020', 'Mon DD, YYYY')),
+(9, 2, TO_DATE('Jan 24, 2019', 'Mon DD, YYYY')),
+(9, 2, TO_DATE('May 15, 2019', 'Mon DD, YYYY')),
+(9, 2, TO_DATE('Feb 27, 2020', 'Mon DD, YYYY')),
+(9, 2, TO_DATE('Aug 3, 2020', 'Mon DD, YYYY')),
+(10, 3, TO_DATE('May 24, 2020', 'Mon DD, YYYY')),
+(10, 1, TO_DATE('Jan 11, 2021', 'Mon DD, YYYY'));
+
