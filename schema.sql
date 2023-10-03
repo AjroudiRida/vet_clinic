@@ -69,3 +69,6 @@ CREATE TABLE visits (
     REFERENCES vets (id),
     PRIMARY KEY (id)
 );
+
+
+CREATE INDEX idx_animal_id ON visits (animal_id);
